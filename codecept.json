@@ -1,0 +1,22 @@
+{
+    "tests": "./tests/*.test.js",
+    "timeout": 10000,
+    "output": "./output",
+    "helpers": {
+      "WebDriverIO": {
+        "url": "http://localhost/Test_Task.html",
+        "browser": "firefox"
+      }
+    },
+    "include": {
+      "I": "./custom_steps.js",
+      "gamePage": "./pages/game.js"
+    },
+    "bootstrap": false,
+    "mocha": {
+      "reporterOptions": {
+          "mochaFile": "output/result.xml"
+      }
+    },
+    "name": "webdriverio-codeceptjs-example"
+  }

@@ -1,0 +1,26 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "Test automation example with codeceptjs and webdriverio",
+  "main": "index.js",
+  "scripts": {
+    "codeceptjs": "codeceptjs run --steps"
+  },
+  "keywords": [
+    "nodejs",
+    "react",
+    "webdriverio",
+    "codeceptjs"
+  ],
+  "author": "irina tarasova",
+  "license": "MIT",
+  "dependencies": {
+    "selenium-server": "^2.53.1",
+    "webdriverio": "^4.2.5"
+  },
+  "devDependencies": {
+    "codeceptjs": "^0.4.16",
+    "mocha": "^5.2.0",
+    "wdio-static-server-service": "^1.0.1"
+  }
+}
