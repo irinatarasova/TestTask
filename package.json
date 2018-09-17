@@ -15,6 +15,7 @@
   "author": "irina tarasova",
   "license": "MIT",
   "dependencies": {
+    "properties-reader": "0.0.16",
     "selenium-server": "^2.53.1",
     "webdriverio": "^4.2.5"
   },
