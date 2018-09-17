@@ -6,7 +6,12 @@ const RullLines             = require('./data.json').lines;
 const RullSuccessLines      = RullLines.filter(t => t.sucessful);
 const RullUnSuccessLines    = RullLines.filter(t => !t.sucessful);
 
+var PropertiesReader = require('properties-reader/src/PropertiesReader');
+var config = PropertiesReader('./config.properties');
+
 const tryCost = 1;
+const url = config.get('baseUrl');
+
 
 let rullLinesSet = new DataTable(['line', 'win', "success"]); 
 
@@ -42,7 +47,7 @@ Scenario is Data Driven
 */
 Data(rullLinesSet.filter(rullLine => rullLine.success == 'true'))
 .Scenario('check all positive scenarios from Rull List', (I, current, gamePage) => {
-    I.amOnPage("http://localhost/Test_Task.html");
+    I.amOnPage(url);
 
     var startBallance = 10;
     gamePage.start(current.line, startBallance.toString());  
@@ -59,7 +64,7 @@ Precondtion - start ballance positive (10 coins)
 */
 Data(rullLinesSet.filter(rullLine => rullLine.success == 'false'))
 .Scenario('check all non-winning scenarios from Rull List', (I, current, gamePage) => {
-    I.amOnPage("http://localhost/Test_Task.html");
+    I.amOnPage(url);
 
     var startBallance = 10;
     gamePage.start(current.line, startBallance.toString());  
@@ -79,7 +84,7 @@ It's expected
 */
 Data(rullLinesSet.filter(rullLine => rullLine.success == 'false'))
 .Scenario('check all non-winning scenarios from Rull List', (I, current, gamePage) => {
-    I.amOnPage("http://localhost/Test_Task.html");
+    I.amOnPage(url);
 
     var startBallance = 0;
     I.seeElement('#spinButton:disabled');
@@ -99,7 +104,7 @@ It's assumed
 - ballance becomes > 1 in any winning case
 */
 Scenario('it validates case with minimal start Ballance = 1', (I, gamePage) => {
-    I.amOnPage("http://localhost/Test_Task.html");
+    I.amOnPage(url);
 
     // win-case
     var startBallance = 1;
